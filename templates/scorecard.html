@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scorecard</title>
+    <link rel="stylesheet" type="text/css" href="static/mainstyles.css">
+</head>
+<body>
+    <form action="{{ url_for('game') }}" method="post" class="top-right-button">
+        <button type="submit">Go Home</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">Round</th>
+                {% for details in data['1'].values() %} <!-- Assume that the number of players in the first round is representative -->
+                    <th colspan="2">{{ details['Name'] }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for round_id, players in data.items() %}
+                <tr>
+                    <td rowspan="2">{{ round_id }}</td>
+                    {% for player in players.values() %}
+                        <td rowspan="2">{{ player['Points'] if 'Points' in player else '-' }}</td>
+                        <td>{{ player['guessed'] }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for player in players.values() %}
+                        <td>{{ player['outcome'] }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

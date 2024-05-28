@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter Player Names</title>
+    <link rel="stylesheet" type="text/css" href="static/mainstyles.css">
+
+</head>
+<body>
+    <h1>Enter Player Names</h1>
+    <hr style="width: 300px; alignment: center; border: 2px solid mediumpurple; border-radius: 5px;">
+    <form action="/players" method="post">
+        {% for i in range(1, num_players + 1) %}
+        <div>
+            <label for="player{{ i }}">Player {{ i }}'s Name:</label>
+            <input type="text" id="player{{ i }}" name="player{{ i }}" required>
+        </div>
+        {% endfor %}
+        <button type="submit">Start Game</button>
+    </form>
+</body>
+</html>

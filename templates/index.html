@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Setup</title>
+    <link rel="stylesheet" type="text/css" href="static/mainstyles.css">
+</head>
+<body>
+    <h1>Enter the Number of Players</h1>
+    <hr style="width: 300px; alignment: center; border: 2px solid mediumpurple; border-radius: 5px;">
+    <form action="/" method="post">
+        <input type="number" name="num_players" required>
+        <button type="submit">Start Game</button>
+    </form>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>

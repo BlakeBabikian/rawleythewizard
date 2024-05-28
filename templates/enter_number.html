@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter Number</title>
+    <link rel="stylesheet" type="text/css" href="static/mainstyles.css">
+</head>
+<body>
+    <h2>{{ player_name }}, please enter your {{ input_type }}.</h2>
+    <form action="enter_number" method="post">
+        <input type="hidden" name="player_id" value="{{ player_id }}">
+        <input type="hidden" name="input_type" value="{{ input_type }}">
+        <input type="number" name="number" required><br>
+        <button type="submit" value="Submit Outcomes">Submit</button>
+    </form>
+</body>
+</html>

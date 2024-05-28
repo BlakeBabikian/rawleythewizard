@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+</head>
+<body>
+    <form action="{{ url_for('/') }}" method="post" class="top-right-button">
+        <button type="submit">Exit Game</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">Round</th>
+                {% for details in data['1'].values() %}
+                    <th colspan="2">{{ details['Name'] }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for round_id, players in data.items() %}
+                <tr>
+                    <td rowspan="2">{{ round_id }}</td>
+                    {% for player in players.values() %}
+                        <td rowspan="2">{{ player['Points'] if 'Points' in player else '-' }}</td>
+                        <td>{{ player['guessed'] }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for player in players.values() %}
+                        <td>{{ player['outcome'] }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

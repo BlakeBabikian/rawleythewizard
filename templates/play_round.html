@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Play Round</title>
+    <link rel="stylesheet" type="text/css" href="static/mainstyles.css">
+</head>
+<body>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <h2>Everyone has Guessed</h2>
+    <form method="post">
+        <button type="submit" value="Submit">Enter Outcomes</button>
+    </form>
+</body>
+</html>
