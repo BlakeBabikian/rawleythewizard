@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, url_for, jsonify
 import numpy as np
 import json
+from app import app, port
 
 
 @app.route('/', methods=['GET', 'POST'])
